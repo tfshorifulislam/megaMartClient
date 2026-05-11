@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import React, { useState } from 'react';
 import {
   FiSearch,
@@ -13,7 +14,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
 
-  const navLinks = ['Home', 'Shop', 'Categories', 'Deals'];
+  const navLinks = ['Home', 'Shop', 'Products', 'Deals'];
 
   return (
     <nav className="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
@@ -28,12 +29,12 @@ const Navbar = () => {
               <span className="text-white text-xl font-black">M</span>
             </div>
 
-            <div className="leading-tight hidden sm:block">
+            <Link href="/" className="leading-tight hidden sm:block">
               <h1 className="text-xl sm:text-2xl font-bold text-gray-900 tracking-tight">
                 Mega-Mart
               </h1>
               <p className="text-xs text-gray-500">Shop Everything</p>
-            </div>
+            </Link>
           </div>
 
           {/* Desktop Search */}
@@ -62,7 +63,7 @@ const Navbar = () => {
               {navLinks.map((item) => (
                 <a
                   key={item}
-                  href="#"
+                  href={`/${item.toLowerCase()}`}
                   className="hover:text-blue-600 transition"
                 >
                   {item}
@@ -133,7 +134,7 @@ const Navbar = () => {
             {[
               'Home',
               'Shop All Products',
-              'Categories',
+              'Products',
               'Best Deals',
               'New Arrivals',
               'About'
