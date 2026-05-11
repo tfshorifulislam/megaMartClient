@@ -1,11 +1,10 @@
 import React from 'react';
+import Banner from './components/Banner';
 
 const HomePage = () => {
   return (
     <div>
-      <h1>
-        Welcome to the Mega Mart Client Home Page!
-      </h1>
+      <Banner />
     </div>
   );
 };
