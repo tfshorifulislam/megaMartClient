@@ -30,11 +30,13 @@ const Navbar = () => {
 
                     {/* Logo */}
                     <div className="flex items-center gap-3 shrink-0">
-                        <div className="w-11 h-11 bg-gradient-to-br from-blue-600 via-purple-600 to-violet-600 rounded-2xl flex items-center justify-center shadow-md">
-                            <span className="text-white text-xl font-black">M</span>
-                        </div>
-
+                        <Link href="/" className="flex items-center gap-2">
+                            <div className="w-11 h-11 bg-gradient-to-br from-blue-600 via-purple-600 to-violet-600 rounded-2xl flex items-center justify-center shadow-md">
+                                <span className="text-white text-xl font-black">M</span>
+                            </div>
+                        </Link>
                         <Link href="/" className="leading-tight hidden sm:block">
+
                             <h1 className="text-xl sm:text-2xl font-bold text-gray-900 tracking-tight">
                                 Mega-Mart
                             </h1>
@@ -145,7 +147,7 @@ const Navbar = () => {
                 </div>
 
             </div>
-        </nav>
+        </nav >
     );
 };
 
