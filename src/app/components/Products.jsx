@@ -1,3 +1,4 @@
+import { Button } from '@heroui/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -74,7 +75,7 @@ const Products = async () => {
                                 {product.name}
                             </h3>
 
-                            <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+                            <p className="text-sm text-gray-600 mb-3 line-clamp-1">
                                 {product.description}
                             </p>
 
@@ -98,16 +99,18 @@ const Products = async () => {
                                     ⭐ {product.rating}
                                 </span>
 
-                                <button
-                                    disabled={!product.inStock}
-                                    className={`px-4 py-2 rounded-xl text-sm font-medium transition
+                                <Link href={`/products/${product._id || product.name}`}>
+                                    <Button
+                                        disabled={!product.inStock}
+                                        className={`px-4 py-2 rounded-xl text-sm font-medium transition
                     ${product.inStock
-                                            ? 'bg-blue-600 text-white hover:bg-blue-700'
-                                            : 'bg-gray-200 text-gray-500 cursor-not-allowed'
-                                        }`}
-                                >
-                                    {product.inStock ? 'Add to Cart' : 'Out of Stock'}
-                                </button>
+                                                ? 'bg-blue-600 text-white hover:bg-blue-700'
+                                                : 'bg-gray-200 text-gray-500 cursor-not-allowed'
+                                            }`}
+                                    >
+                                        {product.inStock ? 'Add to Cart' : 'Out of Stock'}
+                                    </Button>
+                                </Link>
 
                             </div>
 

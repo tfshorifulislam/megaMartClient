@@ -1,4 +1,6 @@
+import { Button } from '@heroui/react';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const ProductsPage = async () => {
@@ -117,17 +119,18 @@ const ProductsPage = async () => {
                 </span>
 
                 {/* Button */}
-                <button
-                  disabled={!product.inStock}
-                  className={`px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition
-                    ${
-                      product.inStock
+                <Link href={`/products/${product._id}`}>
+                  <Button
+                    disabled={!product.inStock}
+                    className={`px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition
+                    ${product.inStock
                         ? 'bg-blue-600 text-white hover:bg-blue-700'
                         : 'bg-gray-200 text-gray-500 cursor-not-allowed'
-                    }`}
-                >
-                  {product.inStock ? 'Add to Cart' : 'Out of Stock'}
-                </button>
+                      }`}
+                  >
+                    {product.inStock ? 'Add to Cart' : 'Out of Stock'}
+                  </Button>
+                </Link>
 
               </div>
 
